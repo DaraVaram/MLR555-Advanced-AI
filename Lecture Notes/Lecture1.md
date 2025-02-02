@@ -21,11 +21,11 @@ The ```input``` is something that is *perceived* in the environment. The ```outp
 
 Now on the side of the intelligent agent, how does it map the sensory input to the actuators? This is what we'll study. 
 
-## Examples of intelligent agents
+### Examples of intelligent agents
 - Most act within this perception-action cycle. There's loads of them. One example is route finding, constraint satisfaction agents, etc...
 - **Bayesian Network**: The environment contains random variables and conditional probability values. The agent performs probabilistic inference, so it's no longer definite perceptions being mapped to definitive actions. It's all based on probability.
 
-## Types of **environments**: 
+### Types of **environments**: 
 - Observation: Full vs. Partial:
   - Fully observable means that the agent is aware of all the variables in the environment at the current time. An example of this would be a game of chess. Entire board is visible to both players
   - Partially observable means that the agent does not have access to the complete *current* state of the environment
@@ -49,8 +49,26 @@ agent = architecture + program
 - The agent architecture consists of sensors and actuators.
 - The program implements the mapping from the sensors to the actuators.
 
-## Types of agent **programs**:
+### Types of agent **programs**:
 - Simple reflex agents: Responding directly to the actions that are perceived. This is the simplest type of AI agent. It's basically an ```if, then``` cycle.
 - Model-based reflex agents: Maintain an internal state to track aspects of the environment, because there are some aspects that may not be currently visible in the environment.
 - Goal-based agents: They have a goal. They need to achieve it.
-- Utility-based reflex agents: Optimizing some sort of utility function. They make decisions based on how "useful" it is. It's more flexibile and can handle more diverse situations. 
+- Utility-based reflex agents: Optimizing some sort of utility function. They make decisions based on how "useful" it is. It's more flexibile and can handle more diverse situations.
+- 
+
+## 02 - Solving Problems by Searching
+Let's say you have a map. How do you pick the best route given a starting state and a goal state? This is the essence of what we are doing in this lecture. Determining the "best" set of decisions that lead to a goal state. Let's first go through the concept of problem formulation: 
+
+A search problem is defined by the following 5 items: 
+```
+1. initial state
+2. Actions: Given a state s, Actions(s) returns the set of actions that can be executed in the state s
+3. Transition model: Result(s,a) returns the state that results from doing an action a in state s
+4. Goal test: bool goal_test(s) determines whether we are at the goal state or not. T/F
+5. Path cost: c(s, a, s') is the cost of performing an action in state s to get to state s'. Assumed non-negative. 
+```
+The **solution** is a sequence of actions $(a_1, a_2, ..., a_g)$ that lead to the goal state. The set of all states is called the state space. 
+
+### Search algorithms: 
+ 
+
